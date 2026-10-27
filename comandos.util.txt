@@ -11,3 +11,5 @@ ng new (nome-do-projeto) -> comando utilizado para criar um novo projeto em angu
 ng serve --o -> executa o projeto
 
 ng generate componente (caminho e nome do seu componente) -> comando utilizado para criar um componente.
+
+ng generate service (caminho de onde o arquivo service ficara hospedado/armazenado)
