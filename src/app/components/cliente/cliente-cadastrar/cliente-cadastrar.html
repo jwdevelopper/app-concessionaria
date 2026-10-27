@@ -1,52 +1,60 @@
 <div class="container">
   <p-card header="Formulário de Cadastro de Cliente" class="mt-4"
-    subheader="O seguinte cadastro será utilizado em Vendas e Ordens de Serviço">
-    <form [formGroup]="formularioCliente" (ngSubmit)="salvarCliente()">
+          subheader="O seguinte cadastro será utilizado em Vendas e Ordens de Serviço">
+    <form [formGroup]="formularioCliente" (ngSubmit)="enviar()">
       <div class="row mt-4">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-2">
           <p-floatlabel>
             <input pInputText id="nome" autocomplete="off"
-            formControlName="nome"
-            [invalid]="formularioCliente.get('nome')?.touched
-            && formularioCliente.get('nome')?.invalid"/>
+                   formControlName="nome"
+                   [invalid]="formularioCliente.get('nome')?.touched
+            && formularioCliente.get('nome')?.invalid" />
             <label for="nome">Nome: *</label>
           </p-floatlabel>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 mt-2">
           <p-floatlabel>
             <p-select id="tipoPessoa"
-            formControlName="tipoPessoa"
-            [options]="tipoPessoaOptions"
-            optionLabel="descricao"
-            optionValue="valor" />
+                      formControlName="tipoPessoa"
+                      [options]="tipoPessoaOptions"
+                      optionLabel="descricao"
+                      optionValue="valor" />
             <label for="tipoPessoa">Tipo de Pessoa: *</label>
           </p-floatlabel>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 mt-2">
           <p-floatlabel>
-            <input id="cpfCnpj"
-            formControlName="cpfCnpj"
-            pInputText
-            pInputMask="999.999.999-99" />
+            <p-inputmask inputId="cpfCnpj"
+                         formControlName="cpfCnpj"
+                         mask="999.999.999-99"
+                         [unmask]="false"
+                         [autoClear]="false"
+                         [invalid]="formularioCliente.get('cpfCnpj')?.touched
+            && formularioCliente.get('cpfCnpj')?.invalid" />
             <label for="cpfCnpj">CPF: *</label>
           </p-floatlabel>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 mt-2">
           <p-float-label>
-            <input pInputText
-            pInputMask="(99) 9 9999-9999"
-            formControlName="telefone"
-            id="telefone" />
+            <p-inputmask inputId="telefone"
+                         formControlName="telefone"
+                         mask="(99) 9 9999-9999"
+                         [unmask]="false"
+                         [autoClear]="false"
+                         [invalid]="formularioCliente.get('telefone')?.touched
+            && formularioCliente.get('telefone')?.invalid" />
             <label for="telefone">Telefone: *</label>
           </p-float-label>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 mt-2">
           <p-float-label>
-            <input
-            pInputText
-            pInputMask="99999-999"
-            id="cep"
-            formControlName="cep">
+            <p-inputmask inputId="cep"
+                         formControlName="cep"
+                         mask="99999-999"
+                         [unmask]="false"
+                         [autoClear]="false"
+                         [invalid]="formularioCliente.get('cep')?.touched
+            && formularioCliente.get('cep')?.invalid" />
             <label for="cep">CEP: *</label>
           </p-float-label>
         </div>
@@ -61,26 +69,26 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mt-2">
           <p-floatlabel>
             <input
-            pInputText
-            id="endereco"
-            autocomplete="off"
-            formControlName="logradouro" />
+              pInputText
+              id="endereco"
+              autocomplete="off"
+              formControlName="logradouro" />
             <label for="endereco">Endereço: *</label>
           </p-floatlabel>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-2">
           <p-floatlabel>
             <input pInputText id="bairro"
-            autocomplete="off"
-            formControlName="bairro" />
+                   autocomplete="off"
+                   formControlName="bairro" />
             <label for="bairro">Bairro: *</label>
           </p-floatlabel>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 mt-2">
           <p-floatlabel>
             <input pInputText id="numero"
-            autocomplete="off"
-            formControlName="numero"/>
+                   autocomplete="off"
+                   formControlName="numero" />
             <label for="numero">Numero: *</label>
           </p-floatlabel>
         </div>
@@ -91,17 +99,23 @@
         <div class="col-md-12 mt-2">
           <p-floatlabel>
             <input type="text" pInputText id="email"
-            formControlName="email" />
+                   formControlName="email" />
             <label for="email">Email: *</label>
           </p-floatlabel>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col-xs-12 col-sm-12 col-md-3 mt-2">
-          <button pButton severity="success"><svg data-p-icon="save"></svg>Salvar</button>
+          <button pButton severity="success">
+            <svg data-p-icon="save"></svg>
+            Salvar
+          </button>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-3 mt-2">
-          <button type="button" pButton severity="danger"><svg data-p-icon="times"></svg>Cancelar</button>
+          <button type="button" pButton severity="danger" [routerLink]="['/clientes/listar']">
+            <svg data-p-icon="times"></svg>
+            Cancelar
+          </button>
         </div>
       </div>
     </form>

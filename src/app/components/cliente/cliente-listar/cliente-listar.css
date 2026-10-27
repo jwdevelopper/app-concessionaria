@@ -1,0 +1,10 @@
+.btn-acao {
+  width: 2.5rem !important;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  padding: 0;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
