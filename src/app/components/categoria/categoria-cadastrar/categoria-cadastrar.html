@@ -1,0 +1,32 @@
+<div class="container">
+  <p-card header="Formulário de Cadastro de Categoria" class="mt-4"
+          subheader="O seguinte cadastro será utilizado em Vendas e Ordens de Serviço">
+    <form [formGroup]="formularioCategoria" (ngSubmit)="enviar()">
+      <div class="row mt-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-2">
+          <p-floatlabel>
+            <input pInputText id="nome" autocomplete="off"
+                   formControlName="nome"
+                   [invalid]="formularioCategoria.get('nome')?.touched
+            && formularioCategoria.get('nome')?.invalid" />
+            <label for="nome">Nome: *</label>
+          </p-floatlabel>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-xs-12 col-sm-12 col-md-3 mt-2">
+          <button pButton severity="success">
+            <svg data-p-icon="save"></svg>
+            Salvar
+          </button>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 mt-2">
+          <button type="button" pButton severity="danger" [routerLink]="['/categorias/listar']">
+            <svg data-p-icon="times"></svg>
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>

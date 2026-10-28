@@ -20,6 +20,7 @@
     "@angular/platform-server": "^22.1.0",
     "@angular/router": "^22.1.0",
     "@angular/ssr": "^22.1.3",
+    "@brunoc/ngx-viacep": "^3.5.2",
     "@primeuix/themes": "^3.0.0",
     "express": "^5.1.0",
     "primeng": "^22.0.0",

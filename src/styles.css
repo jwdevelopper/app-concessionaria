@@ -11,7 +11,7 @@ body {
   font-size: 50px;
   color: green;
 }
- input, p-select, button{
+ input, p-select, button, p-autocomplete{
   width: 100%!important;
  }
 

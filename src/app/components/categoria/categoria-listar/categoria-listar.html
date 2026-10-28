@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="d-flex justify-content-end mb-3">
+    <button pButton severity="success" [routerLink]="['/categorias/cadastrar']">
+      Nova categoria
+    </button>
+  </div>
+  <p-table [value]="listaCategorias">
+    <ng-template #header>
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-categoria>
+      <tr>
+        <td>{{ categoria.id }}</td>
+        <td>{{ categoria.nome }}</td>
+        <td>
+          <div class="d-flex gap-2">
+            <button pButton class="btn-acao" severity="info" iconOnly [routerLink]="['/categorias/editar', categoria.id]"
+              pTooltip="Editar" tooltipPosition="top" aria-label="Editar">
+              <svg data-p-icon="pencil"></svg>
+            </button>
+            <button pButton class="btn-acao" severity="danger" iconOnly (click)="excluirCategoria(categoria.id)"
+              pTooltip="Excluir" tooltipPosition="top" aria-label="Excluir">
+              <svg data-p-icon="trash"></svg>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
